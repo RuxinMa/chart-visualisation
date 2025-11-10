@@ -24,7 +24,7 @@ export const validateData = (data: unknown[]): ValidationResult => {
   const samplesToCheck = Math.min(5, data.length);
   
   for (let i = 0; i < samplesToCheck; i++) {
-    const item = data[i] as any;
+    const item = data[i] as Record<string, unknown>;
 
     if (!item || typeof item !== 'object') {
       errors.push(`Item at index ${i} is not an object`);
@@ -54,7 +54,8 @@ export const validateData = (data: unknown[]): ValidationResult => {
 
     // Validate date format (basic check)
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-    if (item.date && !dateRegex.test(item.date)) {
+    const dateValue = item.date;
+    if (typeof dateValue === 'string' && !dateRegex.test(dateValue)) {
       errors.push(`Item at index ${i} has invalid date format (expected YYYY-MM-DD)`);
     }
   }

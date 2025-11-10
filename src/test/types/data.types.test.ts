@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { RawDataPoint, ProcessedDataPoint, MetricConfig } from './data.types';
+import type { RawDataPoint, ProcessedDataPoint, MetricConfig } from '@/types/data.types';
 
 describe('Data Types', () => {
   describe('RawDataPoint', () => {
@@ -40,7 +40,6 @@ describe('Data Types', () => {
         key: 'median_house_price_syd',
         label: 'House Price',
         color: '#0173B2',
-        unit: 'AUD',
         formatValue: (value: number) => `$${value}`,
         description: 'Test description',
       };

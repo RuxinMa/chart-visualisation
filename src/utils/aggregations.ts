@@ -7,12 +7,7 @@
 
 import { 
   parseISO, 
-  startOfWeek, 
-  startOfMonth,
-  format,
   addDays,
-  isSameWeek,
-  isSameMonth,
 } from 'date-fns';
 import { AGGREGATION_CONFIG } from '@/config';
 import type { RawDataPoint, ProcessedDataPoint } from '@/types/data.types';

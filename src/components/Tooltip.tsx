@@ -2,7 +2,13 @@ import { PRIMARY_METRIC } from '@/utils/constants';
 
 interface CustomTooltipProps {
   active?: boolean;
-  payload?: any[];
+  payload?: {
+    value: number | string;
+    name?: string;
+    dataKey?: string;
+    payload?: Record<string, unknown>;
+    color?: string;
+  }[];
   label?: string;
   metric: typeof PRIMARY_METRIC;
 }
@@ -19,6 +25,7 @@ export const CustomTooltip: React.FC<CustomTooltipProps> = ({
 
   const data = payload[0];
   const value = data.value;
+  const numericValue = typeof value === 'number' ? value : Number(value);
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
@@ -35,7 +42,7 @@ export const CustomTooltip: React.FC<CustomTooltipProps> = ({
         </p>
       </div>
       <p className="text-lg font-bold text-gray-900 mt-1">
-        {metric.formatValue(value)}
+        {metric.formatValue(numericValue)}
       </p>
     </div>
   );

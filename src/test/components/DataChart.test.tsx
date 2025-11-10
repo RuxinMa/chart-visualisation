@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { DataChart } from './DataChart';
+import { DataChart } from '../../components/DataChart';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 

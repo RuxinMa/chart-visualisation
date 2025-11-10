@@ -12,7 +12,14 @@ export type ChartType = 'line' | 'bar' | 'scatter';
 /**
  * Time grouping options
  */
-export type TimeGrouping = 'daily' | 'weekly' | 'fortnightly' | 'monthly';
+export const TimeGrouping = {
+  Daily: 'daily',
+  Weekly: 'weekly',
+  Fortnightly: 'fortnightly',
+  Monthly: 'monthly',
+} as const;
+
+export type TimeGrouping = (typeof TimeGrouping)[keyof typeof TimeGrouping];
 
 /**
  * Chart configuration state

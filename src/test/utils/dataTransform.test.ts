@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, it, expect } from 'vitest';
 import {
   validateData,
@@ -6,7 +7,7 @@ import {
   extractMetric,
   calculateAverage,
   removeDuplicateDates,
-} from './dataTransform';
+} from '@/utils/dataTransform';
 import type { RawDataPoint } from '@/types/data.types';
 
 describe('dataTransform', () => {

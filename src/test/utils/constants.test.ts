@@ -5,7 +5,7 @@ import {
   CHART_TYPES,
   TIME_GROUPINGS,
   DEFAULT_CHART_CONFIG,
-} from './constants';
+} from '@/utils/constants';
 
 describe('constants', () => {
   describe('ALL_METRICS', () => {

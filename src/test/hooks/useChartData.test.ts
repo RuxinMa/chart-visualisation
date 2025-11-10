@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { renderHook } from '@testing-library/react';
-import { useChartData } from './useChartData';
+import { useChartData } from '@/hooks/useChartData';
 import type { RawDataPoint } from '@/types/data.types';
 import * as dataTransform from '@/utils/dataTransform';
 
@@ -116,7 +116,7 @@ describe('Edge cases', () => {
   });
 
   it('should fallback to daily for unknown time grouping', () => {
-    const { result } = renderHook(() => useChartData(mockData, 'yearly' as any));
+    const { result } = renderHook(() => useChartData(mockData, 'yearly' as unknown as Parameters<typeof useChartData>[1]));
 
     expect(result.current.processedData).toHaveLength(3); 
     expect(result.current.error).toBeNull();

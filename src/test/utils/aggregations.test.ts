@@ -4,7 +4,7 @@ import {
   aggregateByFortnight,
   aggregateByMonth,
   processDaily,
-} from './aggregations';
+} from '@/utils/aggregations';
 import type { RawDataPoint } from '@/types/data.types';
 
 describe('aggregations', () => {

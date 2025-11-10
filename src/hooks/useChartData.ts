@@ -7,7 +7,7 @@
 
 import { useMemo } from 'react';
 import type { RawDataPoint, ProcessedDataPoint } from '@/types/data.types';
-import type { TimeGrouping } from '@/types/chart.types';
+import { TimeGrouping } from '@/types/chart.types';
 import {
   processDaily,
   aggregateByWeek,
@@ -67,18 +67,14 @@ export const useChartData = (
 
       // Aggregate based on time grouping
       switch (timeGrouping) {
-        case 'daily':
+        case TimeGrouping.Daily:
           return processDaily(sorted, metricKey);
-        
-        case 'weekly':
+        case TimeGrouping.Weekly:
           return aggregateByWeek(sorted, metricKey);
-        
-        case 'fortnightly':
+        case TimeGrouping.Fortnightly:
           return aggregateByFortnight(sorted, metricKey);
-        
-        case 'monthly':
+        case TimeGrouping.Monthly:
           return aggregateByMonth(sorted, metricKey);
-        
         default:
           console.warn(`Unknown time grouping: ${timeGrouping}`);
           return processDaily(sorted, metricKey);

@@ -60,7 +60,7 @@ const roundToNiceNumber = (
   const absValue = Math.abs(value);
   const sign = value < 0 ? -1 : 1;
   
-  let roundFn = direction === 'floor' ? Math.floor : Math.ceil;
+  const roundFn = direction === 'floor' ? Math.floor : Math.ceil;
   
   // For very small values (< 1) - round to 2 decimals
   if (absValue < 1) {

@@ -12,7 +12,6 @@ import {
   format, 
   parseISO, 
   startOfWeek, 
-  endOfWeek,
   addDays,
   startOfMonth,
   isValid 

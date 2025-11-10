@@ -3,8 +3,8 @@ import {
   calculateYAxisDomain,
   calculateTickCount,
   formatYAxisTick,
-} from './chartHelpers';
-import { ALL_METRICS } from './constants';
+} from '@/utils/chartHelpers';
+import { ALL_METRICS } from '@/utils/constants';
 import type { ProcessedDataPoint } from '@/types/data.types';
 
 describe('chartHelpers', () => {

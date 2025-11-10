@@ -7,7 +7,7 @@ import {
   formatTooltipDate,
   getWeekStart,
   getMonthStart,
-} from './dateFormatters';
+} from '@/utils/dateFormatters';
 
 describe('dateFormatters', () => {
   describe('formatDailyDate', () => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { ChartView } from './ChartView';
+import { ChartView } from '../../components/ChartView';
 import { PRIMARY_METRIC } from '@/utils/constants';
 import type { ProcessedDataPoint } from '@/types/data.types';
 
@@ -43,7 +43,7 @@ describe('ChartView', () => {
     });
 
     it('should show empty state when data is undefined', () => {
-      render(<ChartView {...defaultProps} data={undefined as any} />);
+      render(<ChartView {...defaultProps} data={undefined as unknown as ProcessedDataPoint[]} />);
       expect(screen.getByTestId('chart-empty')).toBeInTheDocument();
     });
   });
