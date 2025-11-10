@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare const global: any;
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { DataChart } from '../../components/DataChart';
+import { DataChart } from '@/components/DataChart';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
@@ -21,7 +23,6 @@ const mockData = [
     aud_usd_exchange: 5050,
   },
 ];
-
 
 describe('DataChart', () => {
   beforeEach(() => {

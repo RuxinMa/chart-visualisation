@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { CustomTooltip } from '../../components/Tooltip'
+import { CustomTooltip } from '@/components/Tooltip'
 import { PRIMARY_METRIC } from '@/utils/constants'
 
 describe('CustomTooltip', () => {

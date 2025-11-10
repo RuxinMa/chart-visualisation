@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { ChartView } from '../../components/ChartView';
+import { ChartView } from '@/components/ChartView';
 import { PRIMARY_METRIC } from '@/utils/constants';
 import type { ProcessedDataPoint } from '@/types/data.types';
 
