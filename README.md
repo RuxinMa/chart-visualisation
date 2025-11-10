@@ -4,7 +4,7 @@ Interactive data visualization app built with **React, TypeScript, Tailwind CSS*
 
 ## 🌐 Live Demo
 
-[Deploy on Vercel]()
+[Deploy on Vercel](https://chart-visualisation.vercel.app/)
 
 ---
 
