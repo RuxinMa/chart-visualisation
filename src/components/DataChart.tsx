@@ -14,6 +14,7 @@ import { DEFAULT_CHART_CONFIG, PRIMARY_METRIC } from '@/utils/constants';
 import { useChartData } from '@/hooks/useChartData';
 import { ChartControls } from './ChartControls';
 import { ChartView } from './ChartView';
+import { Github } from 'lucide-react';
 
 interface DataChartProps {
   data?: RawDataPoint[];
@@ -172,6 +173,17 @@ export const DataChart: React.FC<DataChartProps> = ({ data: providedData }) => {
             </>
           )}
         </main>
+        <footer className="mt-10 text-center text-gray-500 flex justify-center items-center gap-2">
+          <Github data-testid="github-icon" className="w-5 h-5 inline" />
+          <a
+            href="https://github.com/RuxinMa/chart-visualisation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-700 hover:underline transition-colors"
+          >
+            GitHub Repository
+          </a>
+        </footer>
       </div>
     </div>
   );

@@ -174,5 +174,21 @@ describe('Chart Interaction', () => {
       expect(weeklyButton).toHaveAttribute('aria-pressed', 'true');
     });
   });
+});
 
+describe('App Footer', () => {
+  it('should display GitHub repo link with icon', () => {
+    render(<DataChart data={mockData} />);
+    
+    const link = screen.getByRole('link', { name: /GitHub Repository/i });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute(
+      'href',
+      'https://github.com/RuxinMa/chart-visualisation'
+    );
+    expect(link).toHaveAttribute('target', '_blank');
+
+    const icon = screen.getByTestId('github-icon');
+    expect(icon).toBeInTheDocument();
+  });
 });
