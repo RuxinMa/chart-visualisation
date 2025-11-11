@@ -19,77 +19,68 @@ Interactive data visualization app built with **React, TypeScript, Tailwind CSS*
 ## 🎯 Features Implemented
 
 ### ✅ Task 2a: Basic Line Chart
-- Interactive line chart with Recharts
-- Hover tooltips showing data values
+> ⚠️ **Design Note:** After analysing the dataset and user requirements, this chart component was designed to display **a single metric at a time**.
+>
+> Displaying all metrics together could overwhelm users due to large differences in scales. This ensures clarity, readability, and a better user experience.
+> In a local environment, other metrics can be tested via configuration—see **Configurable Metrics** in the Development section below for details.
+
+- Interactive line chart with hover tooltips
 - Date formatting (DD MMM YYYY)
-- Grid lines and axis labels
-- Legend for data series
+- Grid lines, axis labels, and legend
 - Brush component for time range selection
 
 ### ✅ Task 2b: Time Aggregation
-- **Daily**: Show individual data points
-- **Weekly**: Aggregate by week (Monday-Sunday), display average
-- **Fortnightly**: Aggregate by 14-day periods, display average
-- **Monthly**: Aggregate by calendar month, display average
+- Support for **daily**, **weekly**, **fortnightly**, and **monthly** aggregation
 - Dynamic date formatting based on aggregation level
+- Averages computed for aggregated periods
 
 ### ✅ Task 2c: Chart Type Switching
-- **Line Chart**: Default visualization
-- **Bar Chart**: Alternative bar visualization
-- **Scatter Plot**: Scatter point visualization
+- **Line**, **Bar**, and **Scatter** chart options
 - Smooth transitions between chart types
 
 ### 🌟 Bonus Features
-- **Dynamic Y-axis Range**: Automatically adjusts to data range for better visibility
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Data Statistics**: Display total records and processed data points
-- **Accessibility**: ARIA labels and keyboard navigation support
+- **Dynamic Y-axis Range**: Automatically adapts to metric values
+- **Responsive Design** for desktop and mobile
+- **Data Statistics** showing record counts
 
-### 🔭 Configurable Metrics
 
-You can locally test other metrics by modifying the `ACTIVE_METRIC` in `src/config.ts`:
+> **Future Enhancements:**
+>
+>* **Accessibility:** Improve accessibility by adding ARIA labels, roles, and keyboard navigation support across chart components.
+>* **Enhanced Visualization:** Add a metric selection panel in the UI to switch metrics dynamically without modifying the code.
+>* **Data Insights:** Display basic summary statistics (e.g., total, average, max/min) alongside the chart for quick reference.
 
-```ts
-export const ACTIVE_METRIC: MetricKey = 'house_price'; // default
-
-// Options:
-// 'house_price'   - Median House Price (Sydney) ~$100k-$130k
-// 'jobseekers'    - Jobseeker Recipients ~9k-11k people
-// 'cash_rate'     - RBA Cash Rate ~4%-6%
-// 'exchange_rate' - AUD/USD Exchange Rate ~0.48-0.52 USD
-```
-
-> The deployed demo uses the default `'house_price'` metric.
 
 ## 📁 Project Structure
 ```
 chart-visualization/
 ├── public/
-│   └── assessment_2.json          # Data file (5000+ records)
+│   └── assessment_2.json
 ├── src/
 │   ├── components/
-│   │   ├── DataChart.tsx           # Main container component
-│   │   ├── ChartControls.tsx       # Time grouping & chart type controls
-│   │   ├── ChartView.tsx           # Recharts visualization
-│   │   └── Tooltip.tsx             # Display detail data for current hover point
+│   │   ├── DataChart.tsx
+│   │   ├── ChartControls.tsx
+│   │   ├── ChartView.tsx
+│   │   └── Tooltip.tsx
 │   ├── hooks/
-│   │   └── useChartData.ts         # Data processing hook
+│   │   └── useChartData.ts
 │   ├── types/
-│   │   ├── data.types.ts           # Data type definitions
-│   │   └── chart.types.ts          # Chart configuration types
+│   │   ├── data.types.ts
+│   │   └── chart.types.ts
 │   ├── utils/
-│   │   ├── constants.ts            # Configuration constants
-│   │   ├── dateFormatters.ts       # Date formatting utilities
-│   │   ├── dataTransform.ts        # Data transformation utilities
-│   │   ├── aggregations.ts         # Time aggregation algorithms
-│   │   └── chartHelpers.ts         # Chart calculation helpers
+│   │   ├── constants.ts
+│   │   ├── dateFormatters.ts
+│   │   ├── dataTransform.ts
+│   │   ├── aggregations.ts
+│   │   └── chartHelpers.ts
 │   ├── test/
-│   │   ├── setup.ts                # Test environment setup
-│   │   └── vitest.d.ts             # Test type declarations
-│   ├── App.tsx                     # Application entry point
-│   ├── main.tsx                    # React DOM entry
-│   └── index.css                   # Global styles
-```
+│   │   ├── setup.ts
+│   │   └── vitest.d.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+
+````
 
 ## 🧪 Testing & Coverage
 
@@ -99,7 +90,7 @@ chart-visualization/
 npm run test           # Run all tests
 npm run test:ui        # Run tests in UI mode
 npm run test:coverage  # Generate coverage report
-```
+````
 
 **Latest Test Summary**
 
@@ -111,23 +102,12 @@ Duration:    3.03s
 
 **Coverage Report**
 
-| Category             | % Stmts  | % Branch  | % Funcs   | % Lines  |
-| -------------------- | -------- | --------- | --------- | -------- |
-| **All files**        | **91.9** | **83.11** | **98.38** | **92.3** |
-| src                  | 100      | 100       | 100       | 100      |
-| src/components       | 87.5     | 78.37     | 93.75     | 87.09    |
-| └─ ChartControls.tsx | 100      | 100       | 100       | 100      |
-| └─ ChartView.tsx     | 88.23    | 92.3      | 66.66     | 88.23    |
-| └─ DataChart.tsx     | 82.85    | 58.82     | 100       | 81.81    |
-| └─ Tooltip.tsx       | 100      | 100       | 100       | 100      |
-| src/hooks            | 95.65    | 90.9      | 100       | 95.65    |
-| └─ useChartData.ts   | 95.65    | 90.9      | 100       | 95.65    |
-| src/utils            | 92.6     | 83.96     | 100       | 93.33    |
-| └─ aggregations.ts   | 100      | 75        | 100       | 100      |
-| └─ chartHelpers.ts   | 91.48    | 81.25     | 100       | 97.5     |
-| └─ constants.ts      | 90.9     | 50        | 100       | 90.9     |
-| └─ dataTransform.ts  | 95.91    | 89.47     | 100       | 95.45    |
-| └─ dateFormatters.ts | 83.05    | 100       | 100       | 83.05    |
+| Category       | % Stmts  | % Branch  | % Funcs   | % Lines  |
+| -------------- | -------- | --------- | --------- | -------- |
+| **All files**  | **91.9** | **83.11** | **98.38** | **92.3** |
+| src/components | 87.5     | 78.37     | 93.75     | 87.09    |
+| src/hooks      | 95.65    | 90.9      | 100       | 95.65    |
+| src/utils      | 92.6     | 83.96     | 100       | 93.33    |
 
 
 ## ⚙️ Development
@@ -148,4 +128,20 @@ npm run build
 
 ```bash
 npm run preview
+```
+
+### 🔭 Configurable Metrics
+
+* The source JSON contains multiple metrics across different scales.
+* By default, the demo displays **only one metric** to maintain clarity and usability.
+* You can test other metrics locally by editing `src/config.ts`:
+
+```ts
+export const ACTIVE_METRIC: MetricKey = 'house_price'; // default
+
+// Options:
+// 'house_price'   - Median House Price (Sydney) ~$100k-$130k
+// 'jobseekers'    - Jobseeker Recipients ~9k-11k people
+// 'cash_rate'     - RBA Cash Rate ~4%-6%
+// 'exchange_rate' - AUD/USD Exchange Rate ~0.48-0.52 USD
 ```
